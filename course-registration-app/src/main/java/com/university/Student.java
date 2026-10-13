@@ -44,11 +44,13 @@ public class Student {
     }
 
     public boolean hasCompletedPrerequisite(String courseCode) {
-        return completedPrerequisites.contains(courseCode);
+    return completedPrerequisites.stream()
+            .anyMatch(code -> code.equalsIgnoreCase(courseCode));
     }
 
     public boolean isRegistered(String courseCode) {
-        return registeredCourses.contains(courseCode);
+    return registeredCourses.stream()
+            .anyMatch(code -> code.equalsIgnoreCase(courseCode));
     }
 
     public void addRegistration(String courseCode, int credits) {
